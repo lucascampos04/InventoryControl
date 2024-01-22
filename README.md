@@ -1,4 +1,4 @@
-Welcome to Inventory Control 😎
+# Welcome to Inventory Control 😎
 
 <hr>
 
