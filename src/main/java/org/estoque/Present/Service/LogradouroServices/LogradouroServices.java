@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioServices{
+public class LogradouroServices {
     private final Conexao conexao;
-    public UsuarioServices(Conexao conexao) {
+    public LogradouroServices(Conexao conexao) {
         this.conexao = conexao;
     }
 
