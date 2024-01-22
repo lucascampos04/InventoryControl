@@ -3,7 +3,7 @@ package org.estoque;
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Connection.connection;
 import org.estoque.Model.Entity.Logradouro;
-import org.estoque.Present.Service.LogradouroServices.UsuarioServices;
+import org.estoque.Present.Service.LogradouroServices.LogradouroServices;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,7 +17,7 @@ public class App
     public static void main( String[] args ) throws SQLException {
         try {
             Conexao conexao = new connection();
-            UsuarioServices usuarioServices = new UsuarioServices(conexao);
+            LogradouroServices usuarioServices = new LogradouroServices(conexao);
 
             List<Logradouro> logradouros = usuarioServices.listallLogradouros();
 
