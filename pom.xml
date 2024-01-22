@@ -18,6 +18,30 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+
+
+  <profiles>
+    <profile>
+      <!-- Profile for GitHub Maven Repository -->
+      <id>github</id>
+      <repositories>
+        <repository>
+          <!-- Central Maven Repository -->
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+          <!-- GitHub Maven Repository -->
+          <id>github</id>
+          <url>https://maven.pkg.github.com/lucascampos04/InventoryControl</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
