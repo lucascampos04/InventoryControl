@@ -3,9 +3,8 @@ package org.estoque;
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Connection.connection;
 import org.estoque.Model.Entity.Logradouro;
-import org.estoque.Present.Service.UsuarioServices.UsuarioServices;
+import org.estoque.Present.Service.LogradouroServices.UsuarioServices;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
