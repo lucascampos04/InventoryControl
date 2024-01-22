@@ -1,4 +1,4 @@
-package org.estoque.Present.Service.LogradouroServices;
+package org.estoque.Present.LogradouroServices.LogradouroServices;
 
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Entity.Logradouro;
