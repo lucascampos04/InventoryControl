@@ -12,11 +12,11 @@ public class CadastrarUsuarioTest {
         Conexao conexao = new connection();
 
         UsuarioDados usuarioDados = new UsuarioDados();
-        usuarioDados.setUsername("testuserww");
-        usuarioDados.setSenha("testpasswor12d");
+        usuarioDados.setUsername("testusesssdwsrww");
+        usuarioDados.setSenha("testpasswodede12r12d");
         usuarioDados.setNome("Test Userww");
-        usuarioDados.setEmail("test@exampwwle.com");
-        usuarioDados.setTelefone("12345671189");
+        usuarioDados.setEmail("luc4scamposoli04@gmail.com");
+        usuarioDados.setTelefone("12345672112189");
         usuarioDados.setStatus(Status.USER);
         Logradouro logradouro = new Logradouro();
         logradouro.setId(1L);

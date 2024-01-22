@@ -1,15 +1,24 @@
 package org.estoque.Present.CadastrarUsuario;
 
+import com.google.protobuf.Message;
+import com.mysql.cj.Session;
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Entity.Logradouro;
 import org.estoque.Model.Entity.UsuarioDados;
 import org.estoque.Model.Enum.Status;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.mail.MessagingException;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.Properties;
 
 public class CadastrarUsuarioService {
     private final Conexao conexao;
@@ -30,11 +39,21 @@ public class CadastrarUsuarioService {
             PreparedStatement preparedStatement = conexao.getConnection().prepareStatement(sql);
             preencherValores(preparedStatement, usuarioDados);
             int result = preparedStatement.executeUpdate();
-            return result == 1 ? "Usuario adicionado com sucesso" : "Não foi possivel adicionar o usuario";
+            if (result == 1){
+                NotificationCreateAccount notificationCreateAccount = new NotificationCreateAccount();
+                notificationCreateAccount.sendWelcomeEmail(usuarioDados.getEmail(), usuarioDados.getNome());
+                return "Usuario adicionado com sucesso";
+            } else {
+                return "Erro ao cadastrar o usuario";
+            }
+
         } catch (SQLException e) {
             return String.format("Erro : %s ", e.getMessage());
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
         }
     }
+
 
     private void preencherValores(PreparedStatement preparedStatement, UsuarioDados usuarioDados) throws SQLException {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
