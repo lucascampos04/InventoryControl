@@ -1,9 +1,9 @@
-package org.estoque;
+package org.estoque.Test;
 
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Connection.connection;
 import org.estoque.Model.Entity.Logradouro;
-import org.estoque.Present.Service.LogradouroServices.LogradouroServices;
+import org.estoque.Present.LogradouroServices.LogradouroServices.LogradouroServices;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * Hello world!
  *
  */
-public class App 
+public class TestLogradouro
 {
     public static void main( String[] args ) throws SQLException {
         try {
