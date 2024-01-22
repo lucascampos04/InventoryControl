@@ -1,4 +1,7 @@
 Welcome to Inventory Control 😎
+
+<hr>
+
 Language: Java
 Build Tool: Maven
 Libraries used so far: pom.xml
