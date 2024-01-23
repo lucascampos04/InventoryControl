@@ -32,6 +32,15 @@ public class connection implements Conexao{
         return connection;
     }
 
+    public void removerUSerDateNull(){
+        try (Statement statement = connection.createStatement()) {
+            String deleteSQL = "DELETE FROM usuarioDados WHERE id IS NULL";
+            statement.executeUpdate(deleteSQL);
+            System.out.println("Usuários com dataRegistro null removidos com sucesso.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     private boolean tableExist(String table) throws SQLException {
         DatabaseMetaData databaseMetaData  = connection.getMetaData();
         try (ResultSet resultSet  = databaseMetaData.getTables(null, null, table, null)){

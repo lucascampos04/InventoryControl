@@ -7,6 +7,7 @@ import org.estoque.Model.Enum.Status;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "usuarioDados")
@@ -37,8 +38,8 @@ public class UsuarioDados {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(name = "dataRegistro", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp dataRegistro;
+    @Column(name = "dataRegistro", nullable = false)
+    private LocalDateTime dataRegistro;
 
     @ManyToOne
     @JoinColumn(name = "logradouro_id")
@@ -47,7 +48,7 @@ public class UsuarioDados {
     public UsuarioDados() {
     }
 
-    public UsuarioDados(Long id, String username, String senha, String nome, String email, String telefone, Status status, Timestamp dataRegistro, Logradouro logradouro) {
+    public UsuarioDados(Long id, String username, String senha, String nome, String email, String telefone, Status status, LocalDateTime dataRegistro, Logradouro logradouro) {
         this.id = id;
         this.username = username;
         this.senha = senha;
@@ -57,5 +58,12 @@ public class UsuarioDados {
         this.status = status;
         this.dataRegistro = dataRegistro;
         this.logradouro = logradouro;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioDados{" +
+                "status=" + status +
+                '}';
     }
 }
