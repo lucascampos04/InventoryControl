@@ -2,7 +2,7 @@
 
 ## What utilized in project
 <hr>
-<p style="font-weight: bold;">Language: Java</p></p> <br>
+Language: Java <br>
 Build Tool: Maven <br>
 Libraries used so far: pom.xml
 
