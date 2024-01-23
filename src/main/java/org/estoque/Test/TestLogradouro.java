@@ -2,6 +2,7 @@ package org.estoque.Test;
 
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Connection.connection;
+import org.estoque.Model.Connection.connection;
 import org.estoque.Model.Entity.Logradouro;
 import org.estoque.Present.LogradouroServices.LogradouroServices.LogradouroServices;
 
@@ -21,7 +22,6 @@ public class TestLogradouro
 
             List<Logradouro> logradouros = usuarioServices.listallLogradouros();
 
-            // Processar os logradouros (exibir, armazenar, etc.)
             for (Logradouro logradouro : logradouros) {
                 System.out.println("ID: " + logradouro.getId());
                 System.out.println("Endereço: " + logradouro.getEndereco());
