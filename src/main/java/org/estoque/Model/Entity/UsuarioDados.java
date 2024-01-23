@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.estoque.Model.Enum.Status;
 
 import javax.persistence.*;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "usuarioDados")
@@ -15,7 +15,7 @@ import java.security.Timestamp;
 @Data
 public class UsuarioDados {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "username", nullable = false, unique = true)
@@ -34,6 +34,7 @@ public class UsuarioDados {
     private String telefone;
 
     @Column(name = "status", columnDefinition = "varchar(5) default 'USER'")
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Column(name = "dataRegistro", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -43,9 +44,9 @@ public class UsuarioDados {
     @JoinColumn(name = "logradouro_id")
     private Logradouro logradouro;
 
-    public UsuarioDados(){
-
+    public UsuarioDados() {
     }
+
     public UsuarioDados(Long id, String username, String senha, String nome, String email, String telefone, Status status, Timestamp dataRegistro, Logradouro logradouro) {
         this.id = id;
         this.username = username;
