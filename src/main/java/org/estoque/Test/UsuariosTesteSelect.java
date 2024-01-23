@@ -2,55 +2,40 @@ package org.estoque.Test;
 
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Connection.connection;
+import org.estoque.Model.Entity.Logradouro;
 import org.estoque.Model.Entity.UsuarioDados;
+import org.estoque.Present.ListUsuarios.ListUsuarios;
+import org.estoque.Present.LogradouroServices.LogradouroServices.LogradouroServices;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class UsuariosTesteSelect {
     public static void main(String[] args) throws SQLException {
-        Conexao conexao = new connection();
+        try {
+            Conexao conexao = new connection();
+            ListUsuarios listUsuarios = new ListUsuarios(conexao);
 
-        ResultSet resultSet;
-        try (Connection connection = conexao.getConnection()) {
-            String sql = "SELECT * FROM usuarioDados";
+            List<UsuarioDados> usuarios = listUsuarios.listAllUsuarios();
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                resultSet = preparedStatement.executeQuery();
-
-                while (resultSet.next()) {
-                    UsuarioDados usuario = criarUsuarioDados(resultSet);
-
-                    exibirDadosUsuario(usuario);
-                }
+            for (UsuarioDados usuarioDados : usuarios) {
+                System.out.println("ID: " + usuarioDados.getId());
+                System.out.println("Username: " + usuarioDados.getUsername());
+                System.out.println("Senha: " + usuarioDados.getSenha());
+                System.out.println("Nome: " + usuarioDados.getNome());
+                System.out.println("Email: " + usuarioDados.getEmail());
+                System.out.println("Telefone: " + usuarioDados.getTelefone());
+                System.out.println("Status: " + usuarioDados.getStatus());
+                System.out.println("Data e hora do registro: " + usuarioDados.getDataRegistro());
+                System.out.println("----------------------");
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private static UsuarioDados criarUsuarioDados(ResultSet resultSet) throws SQLException {
-        UsuarioDados usuario = new UsuarioDados();
-
-        usuario.setId(resultSet.getLong("id"));
-        usuario.setUsername(resultSet.getString("username"));
-        usuario.setSenha(resultSet.getString("senha"));
-        usuario.setNome(resultSet.getString("nome"));
-        usuario.setEmail(resultSet.getString("email"));
-        usuario.setTelefone(resultSet.getString("telefone"));
-
-        return usuario;
-    }
-
-    private static void exibirDadosUsuario(UsuarioDados usuario) {
-        System.out.println("ID: " + usuario.getId());
-        System.out.println("Username: " + usuario.getUsername());
-        System.out.println("Senha: " + usuario.getSenha());
-        System.out.println("Nome: " + usuario.getNome());
-        System.out.println("Email: " + usuario.getEmail());
-        System.out.println("Telefone: " + usuario.getTelefone());
-        System.out.println("----------------------");
-    }
 }
