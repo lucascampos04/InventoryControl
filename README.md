@@ -1,6 +1,6 @@
 # Welcome to Inventory Control 😎
 
-## What utilized in project
+## What was used in the project 
 <hr>
 Language: Java <br>
 Build Tool: Maven <br>
