@@ -8,14 +8,17 @@ import org.estoque.Model.Entity.UsuarioDados;
 import org.estoque.Model.Enum.Status;
 import org.estoque.Present.CadastrarUsuario.CadastrarUsuarioService;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class CadastrarUsuarioTest {
     public static void main(String[] args) {
         Conexao conexao = new connection();
 
         UsuarioDados usuarioDados = new UsuarioDados();
-        usuarioDados.setUsername("testusesssdwsrww");
-        usuarioDados.setSenha("testpasswodede12r12d");
-        usuarioDados.setNome("Test Userww");
+        usuarioDados.setUsername("lucascampo211511s104");
+        usuarioDados.setSenha("senha12213");
+        usuarioDados.setNome("Lucas Oliveira Campos");
         usuarioDados.setEmail("luc4scamposoli04@gmail.com");
         usuarioDados.setTelefone("12345672112189");
         usuarioDados.setStatus(Status.USER);

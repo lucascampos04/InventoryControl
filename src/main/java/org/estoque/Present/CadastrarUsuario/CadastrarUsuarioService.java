@@ -14,10 +14,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.net.Authenticator;
 import java.net.PasswordAuthentication;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Properties;
 
 public class CadastrarUsuarioService {
@@ -27,7 +27,7 @@ public class CadastrarUsuarioService {
     }
 
     public String addUsuario(UsuarioDados usuarioDados){
-        String sql = "INSERT INTO usuarioDados(username, senha, nome, email, telefone, status, logradouro_id) " +
+        String sql = "INSERT INTO usuarioDados(username, senha, nome, email, telefone, status, logradouro_id )" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         UsuarioDados usuario = searchUsername(usuarioDados.getUsername());
@@ -41,7 +41,7 @@ public class CadastrarUsuarioService {
             int result = preparedStatement.executeUpdate();
             if (result == 1){
                 NotificationCreateAccount notificationCreateAccount = new NotificationCreateAccount();
-                notificationCreateAccount.sendWelcomeEmail(usuarioDados.getEmail(), usuarioDados.getNome());
+                notificationCreateAccount.sendWelcomeEmail(usuarioDados.getEmail(), usuarioDados.getUsername());
                 return "Usuario adicionado com sucesso";
             } else {
                 return "Erro ao cadastrar o usuario";
