@@ -4,17 +4,29 @@
  */
 package org.estoque.View.FormularioCadastro;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.estoque.Present.CadastroControllerUI.CadastroUI;
+
+import javax.swing.*;
+
 /**
  *
  * @author campos
  */
+@Data
+@Getter
+@Setter
 public class CadastraFormularioView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastraFormularioView
-     */
+    private CadastroUI cadastroUI;
+
     public CadastraFormularioView() {
         initComponents();
+        setLocationRelativeTo(null);
+        jButton1.addActionListener(new CadastroUI(this));
+        this.cadastroUI = new CadastroUI(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -29,7 +41,7 @@ public class CadastraFormularioView extends javax.swing.JFrame {
         InputTelefone = new javax.swing.JTextField();
         InputSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,9 +90,7 @@ public class CadastraFormularioView extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salvar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
+
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -110,14 +120,14 @@ public class CadastraFormularioView extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(Message)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -171,38 +181,10 @@ public class CadastraFormularioView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InputSenhaActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        System.out.print("Hello word");
-    }//GEN-LAST:event_jButton1MouseClicked
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastraFormularioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastraFormularioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastraFormularioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastraFormularioView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CadastraFormularioView().setVisible(true);
@@ -218,7 +200,82 @@ public class CadastraFormularioView extends javax.swing.JFrame {
     private javax.swing.JTextField InputUsername1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel Message;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+
+    public JTextField getInputEmail() {
+        return InputEmail;
+    }
+
+    public void setInputEmail(JTextField inputEmail) {
+        InputEmail = inputEmail;
+    }
+
+    public JTextField getInputNome() {
+        return InputNome;
+    }
+
+    public void setInputNome(JTextField inputNome) {
+        InputNome = inputNome;
+    }
+
+    public JTextField getInputSenha() {
+        return InputSenha;
+    }
+
+    public void setInputSenha(JTextField inputSenha) {
+        InputSenha = inputSenha;
+    }
+
+    public JTextField getInputTelefone() {
+        return InputTelefone;
+    }
+
+    public void setInputTelefone(JTextField inputTelefone) {
+        InputTelefone = inputTelefone;
+    }
+
+    public JTextField getInputUsername1() {
+        return InputUsername1;
+    }
+
+    public void setInputUsername1(JTextField inputUsername1) {
+        InputUsername1 = inputUsername1;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return Message;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.Message = jLabel2;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+
 }
