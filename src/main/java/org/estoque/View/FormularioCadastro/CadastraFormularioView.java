@@ -15,7 +15,6 @@ import javax.swing.*;
  *
  * @author campos
  */
-@Data
 @Getter
 @Setter
 public class CadastraFormularioView extends javax.swing.JFrame {
@@ -203,79 +202,4 @@ public class CadastraFormularioView extends javax.swing.JFrame {
     private javax.swing.JLabel Message;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
-
-    public JTextField getInputEmail() {
-        return InputEmail;
-    }
-
-    public void setInputEmail(JTextField inputEmail) {
-        InputEmail = inputEmail;
-    }
-
-    public JTextField getInputNome() {
-        return InputNome;
-    }
-
-    public void setInputNome(JTextField inputNome) {
-        InputNome = inputNome;
-    }
-
-    public JTextField getInputSenha() {
-        return InputSenha;
-    }
-
-    public void setInputSenha(JTextField inputSenha) {
-        InputSenha = inputSenha;
-    }
-
-    public JTextField getInputTelefone() {
-        return InputTelefone;
-    }
-
-    public void setInputTelefone(JTextField inputTelefone) {
-        InputTelefone = inputTelefone;
-    }
-
-    public JTextField getInputUsername1() {
-        return InputUsername1;
-    }
-
-    public void setInputUsername1(JTextField inputUsername1) {
-        InputUsername1 = inputUsername1;
-    }
-
-    public JButton getjButton1() {
-        return jButton1;
-    }
-
-    public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
-    }
-
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
-
-    public JLabel getjLabel2() {
-        return Message;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.Message = jLabel2;
-    }
-
-    public JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
-    }
-
-
 }
