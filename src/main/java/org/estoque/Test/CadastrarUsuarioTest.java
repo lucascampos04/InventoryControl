@@ -16,10 +16,10 @@ public class CadastrarUsuarioTest {
         Conexao conexao = new connection();
 
         UsuarioDados usuarioDados = new UsuarioDados();
-        usuarioDados.setUsername("lucascampo211511s104");
+        usuarioDados.setUsername("Lucas");
         usuarioDados.setSenha("senha12213");
         usuarioDados.setNome("Lucas Oliveira Campos");
-        usuarioDados.setEmail("luc4scamposoli04@gmail.com");
+        usuarioDados.setEmail("camposdlucasoli@gmail.com");
         usuarioDados.setTelefone("12345672112189");
         usuarioDados.setStatus(Status.USER);
         Logradouro logradouro = new Logradouro();
