@@ -1,5 +1,6 @@
 package org.estoque.Model.Entity;
 
+import java.io.Serializable;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,12 +9,14 @@ import org.estoque.Model.Enum.Status;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Objects;
+import org.estoque.Model.Interface.ResetTable;
 
 @Entity
 @Table(name = "usuarioDados")
 @Getter
 @Setter
-public class UsuarioDados {
+public class UsuarioDados implements ResetTable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -59,6 +62,46 @@ public class UsuarioDados {
         this.logradouro = logradouro;
     }
 
+    public UsuarioDados(String username, String senha) {
+        this.username = username;
+        this.senha = senha;
+    }
+    
+    
+    
+    @Override
+    public void reset() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mudarEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final UsuarioDados other = (UsuarioDados) obj;
+        return Objects.equals(this.id, other.id);
+    }
+
+    
     @Override
     public String toString() {
         return "UsuarioDados{" +
@@ -121,7 +164,7 @@ public class UsuarioDados {
     public void setStatus(Status status) {
         this.status = status;
     }
-
+   
     public LocalDateTime getDataRegistro() {
         return dataRegistro;
     }
@@ -137,4 +180,8 @@ public class UsuarioDados {
     public void setLogradouro(Logradouro logradouro) {
         this.logradouro = logradouro;
     }
+
+
+    
+
 }
