@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import org.estoque.Model.Entity.UsuarioDados;
+import org.estoque.View.Central.CentralView;
 import org.estoque.View.Login.LoginView;
 
 /**
@@ -17,10 +18,12 @@ import org.estoque.View.Login.LoginView;
 public class LoginUI implements ActionListener{
     private final LoginView loginView;
     private final Authentication authentication;
+    private final CentralView centralView;
 
-    public LoginUI(LoginView loginView) {
+    public LoginUI(LoginView loginView, org.estoque.View.Central.CentralView centralView) {
         this.loginView = loginView;
         this.authentication = new Authentication();
+        this.centralView = new CentralView();
     } 
 
     @Override
@@ -37,9 +40,10 @@ public class LoginUI implements ActionListener{
     }
     
     public void login(){
+        clearFileds();
         String username = this.loginView.getIInputLogin().getText();
         String password = this.loginView.getInputPassword().getText();
-        
+
         if (username.equals("") || password.equals("")){
             System.out.println("Login incorreto");
             return;
@@ -47,14 +51,21 @@ public class LoginUI implements ActionListener{
         
         UsuarioDados usuario = new UsuarioDados(username, password);
         UsuarioDados usuarioTem = authentication.login(usuario);
-        
+        redirectCentral();
         if (usuarioTem != null){
-            JOptionPane.showConfirmDialog(null, usuarioTem.getNome());
             System.out.println("Login realizado com sucesso");
         } else {
             System.out.println("Usuario ou senha incorreto");
-        }
-        
-              
+        }     
     }
+    private void redirectCentral(){
+        loginView.dispose();
+        centralView.setVisible(true);
+    }
+
+    private void clearFileds(){
+        this.loginView.getInputPassword().setText("");
+        this.loginView.getIInputLogin().setText("");
+    }
+ 
 }
