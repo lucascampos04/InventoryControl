@@ -4,6 +4,7 @@
  */
 package org.estoque.View.FormularioCadastro;
 
+import java.awt.event.MouseEvent;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +33,7 @@ public class CadastraFormularioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Message = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         InputEmail = new javax.swing.JTextField();
         InputNome = new javax.swing.JTextField();
@@ -40,7 +41,7 @@ public class CadastraFormularioView extends javax.swing.JFrame {
         InputTelefone = new javax.swing.JTextField();
         InputSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        Message = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,11 @@ public class CadastraFormularioView extends javax.swing.JFrame {
 
         InputUsername1.setText("Username");
         InputUsername1.setToolTipText("Username");
+        InputUsername1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InputUsername1MouseClicked(evt);
+            }
+        });
         InputUsername1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InputUsername1ActionPerformed(evt);
@@ -88,49 +94,46 @@ public class CadastraFormularioView extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salvar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
 
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout MessageLayout = new javax.swing.GroupLayout(Message);
+        Message.setLayout(MessageLayout);
+        MessageLayout.setHorizontalGroup(
+            MessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(MessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MessageLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessageLayout.createSequentialGroup()
                         .addGap(0, 26, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(MessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(InputEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(MessageLayout.createSequentialGroup()
                                 .addComponent(InputUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(InputNome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(InputTelefone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(InputSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(MessageLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        MessageLayout.setVerticalGroup(
+            MessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Message)
+                .addComponent(jLabel2)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(MessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(InputNome, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(InputUsername1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -148,13 +151,13 @@ public class CadastraFormularioView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Message, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,6 +183,10 @@ public class CadastraFormularioView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_InputSenhaActionPerformed
 
+    private void InputUsername1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InputUsername1MouseClicked
+        
+    }//GEN-LAST:event_InputUsername1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -197,9 +204,90 @@ public class CadastraFormularioView extends javax.swing.JFrame {
     private javax.swing.JTextField InputSenha;
     private javax.swing.JTextField InputTelefone;
     private javax.swing.JTextField InputUsername1;
+    private javax.swing.JPanel Message;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel Message;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+
+    public CadastroUI getCadastroUI() {
+        return cadastroUI;
+    }
+
+    public void setCadastroUI(CadastroUI cadastroUI) {
+        this.cadastroUI = cadastroUI;
+    }
+
+    public JTextField getInputEmail() {
+        return InputEmail;
+    }
+
+    public void setInputEmail(JTextField inputEmail) {
+        InputEmail = inputEmail;
+    }
+
+    public JTextField getInputNome() {
+        return InputNome;
+    }
+
+    public void setInputNome(JTextField inputNome) {
+        InputNome = inputNome;
+    }
+
+    public JTextField getInputSenha() {
+        return InputSenha;
+    }
+
+    public void setInputSenha(JTextField inputSenha) {
+        InputSenha = inputSenha;
+    }
+
+    public JTextField getInputTelefone() {
+        return InputTelefone;
+    }
+
+    public void setInputTelefone(JTextField inputTelefone) {
+        InputTelefone = inputTelefone;
+    }
+
+    public JTextField getInputUsername1() {
+        return InputUsername1;
+    }
+
+    public void setInputUsername1(JTextField inputUsername1) {
+        InputUsername1 = inputUsername1;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getMessage() {
+        return jLabel2;
+    }
+
+    public void setMessage(JLabel message) {
+        jLabel2 = jLabel2;
+    }
+
+    public JPanel getjPanel1() {
+        return Message;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.Message = jPanel1;
+    }
 }
