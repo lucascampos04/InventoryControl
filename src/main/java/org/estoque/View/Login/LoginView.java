@@ -24,8 +24,8 @@ public class LoginView extends javax.swing.JFrame {
     public LoginView() {
         initComponents();
         setLocationRelativeTo(this);
-        this.loginUI = new LoginUI(this);
-        ButtonLogin.addActionListener(new LoginUI(this));
+        this.loginUI = new LoginUI(this, null);
+        ButtonLogin.addActionListener(new LoginUI(this, null));
     }
 
     /**

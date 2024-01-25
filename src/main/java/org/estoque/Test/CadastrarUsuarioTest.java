@@ -16,8 +16,8 @@ public class CadastrarUsuarioTest {
         Conexao conexao = new connection();
 
         UsuarioDados usuarioDados = new UsuarioDados();
-        usuarioDados.setUsername("Lucas");
-        usuarioDados.setSenha("senha12213");
+        usuarioDados.setUsername("LucasCampos");
+        usuarioDados.setSenha("senha");
         usuarioDados.setNome("Lucas Oliveira Campos");
         usuarioDados.setEmail("camposdlucasoli@gmail.com");
         usuarioDados.setTelefone("12345672112189");
