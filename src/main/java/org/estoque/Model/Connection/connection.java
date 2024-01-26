@@ -4,8 +4,19 @@ import org.sqlite.SQLiteException;
 
 import java.io.File;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class connection implements Conexao{
+public class connection implements Conexao{ 
+    public static void main(String[] args) {
+       Conexao conexao = new connection();
+        try {
+            conexao.getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private final String URL = "jdbc:sqlite:C:/Program Files/Estoque/estoqueDatabase.db";
     private Connection connection;
     @Override
@@ -22,6 +33,7 @@ public class connection implements Conexao{
                 createLogradouro();
                 createUsuarioDados();
                 createTableLogs();
+                createTableEstoque();
                 System.out.println("Conexão estabelecida com sucesso");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -61,7 +73,7 @@ public class connection implements Conexao{
 
             try (Statement statement = connection.createStatement()) {
                 statement.execute(createTableSQL);
-                System.out.println("Tabela usuarioDados criada com sucesso.");
+                System.out.println("Tabela logradouro criada com sucesso.");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -104,10 +116,34 @@ public class connection implements Conexao{
 
             try (Statement statement = connection.createStatement()) {
                 statement.execute(createTableSQL);
-                System.out.println("Tabela usuarioDados criada com sucesso.");
+                System.out.println("Tabela logs criada com sucesso.");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+    }
+    
+    private void createTableEstoque() throws SQLException {
+        if (!tableExist("estoque")){
+            String createTableSQL = "CREATE TABLE IF NOT EXISTS estoque ("
+                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                    + "usuario_id INTEGER,"
+                    + "nome TEXT,"
+                    + "categoria TEXT,"
+                    + "quantidade INTEGER,"
+                    + "fornecedor TEXT,"
+                    + "valor DOUBLE,"
+                    + "status TEXT,"
+                    + "FOREIGN KEY (usuario_id) REFERENCES usuarioDados(id)"
+                    + ")";
+
+
+            try (Statement statement = connection.createStatement()) {
+                statement.execute(createTableSQL);
+                System.out.println("Tabela estoque criada com sucesso.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+    }
 }

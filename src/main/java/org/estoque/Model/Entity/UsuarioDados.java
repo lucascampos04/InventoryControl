@@ -47,9 +47,6 @@ public class UsuarioDados implements ResetTable{
     @JoinColumn(name = "logradouro_id")
     private Logradouro logradouro;
 
-    public UsuarioDados() {
-    }
-
     public UsuarioDados(Long id, String username, String senha, String nome, String email, String telefone, Status status, LocalDateTime dataRegistro, Logradouro logradouro) {
         this.id = id;
         this.username = username;
@@ -66,6 +63,14 @@ public class UsuarioDados implements ResetTable{
         this.username = username;
         this.senha = senha;
     }
+
+    public UsuarioDados(Long id) {
+        this.id = id;
+    }    
+    
+    public UsuarioDados() {
+    }
+    
     
     
     

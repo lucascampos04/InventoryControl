@@ -1,7 +1,5 @@
 package org.estoque.Present.CadastrarUsuario;
 
-import com.google.protobuf.Message;
-import com.mysql.cj.Session;
 import org.estoque.Model.Connection.Conexao;
 import org.estoque.Model.Entity.Logradouro;
 import org.estoque.Model.Entity.UsuarioDados;
@@ -9,16 +7,8 @@ import org.estoque.Model.Enum.Status;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.mail.MessagingException;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.sql.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.Properties;
+
 
 public class CadastrarUsuarioService {
     private final Conexao conexao;
