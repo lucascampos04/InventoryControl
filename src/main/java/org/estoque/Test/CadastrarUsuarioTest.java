@@ -14,7 +14,7 @@ import java.util.Date;
 public class CadastrarUsuarioTest {
     public static void main(String[] args) {
         Conexao conexao = new connection();
-
+        
         UsuarioDados usuarioDados = new UsuarioDados();
         usuarioDados.setUsername("LucasCampos");
         usuarioDados.setSenha("senha");
@@ -25,9 +25,9 @@ public class CadastrarUsuarioTest {
         Logradouro logradouro = new Logradouro();
         logradouro.setId(1L);
         usuarioDados.setLogradouro(logradouro);
-
+        
         CadastrarUsuarioService cadastrarUsuarioService = new CadastrarUsuarioService(conexao);
-
+        
         String resultado = cadastrarUsuarioService.addUsuario(usuarioDados);
         System.out.println(resultado);
     }
