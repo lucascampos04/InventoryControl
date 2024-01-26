@@ -40,7 +40,6 @@ public class LoginUI implements ActionListener{
     }
     
     public void login(){
-        clearFileds();
         String username = this.loginView.getIInputLogin().getText();
         String password = this.loginView.getInputPassword().getText();
 
@@ -51,9 +50,10 @@ public class LoginUI implements ActionListener{
         
         UsuarioDados usuario = new UsuarioDados(username, password);
         UsuarioDados usuarioTem = authentication.login(usuario);
-        redirectCentral();
+
         if (usuarioTem != null){
             System.out.println("Login realizado com sucesso");
+            redirectCentral();
         } else {
             System.out.println("Usuario ou senha incorreto");
         }     
