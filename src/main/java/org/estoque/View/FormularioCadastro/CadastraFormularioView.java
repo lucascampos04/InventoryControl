@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.estoque.Present.CadastroControllerUI.CadastroUI;
+import org.estoque.View.Central.CentralView;
+import org.estoque.View.Login.LoginView;
 
 import javax.swing.*;
 
@@ -18,15 +20,15 @@ import javax.swing.*;
  */
 @Getter
 @Setter
-public class CadastraFormularioView extends javax.swing.JFrame {
+public class  CadastraFormularioView extends javax.swing.JFrame {
 
     private CadastroUI cadastroUI;
 
     public CadastraFormularioView() {
         initComponents();
         setLocationRelativeTo(null);
-        jButton1.addActionListener(new CadastroUI(this));
-        this.cadastroUI = new CadastroUI(this);
+        jButton1.addActionListener(new CadastroUI(this, null));
+        this.cadastroUI = new CadastroUI(this, null);
     }
 
     @SuppressWarnings("unchecked")

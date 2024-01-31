@@ -17,6 +17,7 @@ import org.estoque.Present.LoginControllerUI.LoginUI;
  *
  * @author campos
  */
+
 public class LoginView extends javax.swing.JFrame {
 
     private final LoginUI loginUI;
