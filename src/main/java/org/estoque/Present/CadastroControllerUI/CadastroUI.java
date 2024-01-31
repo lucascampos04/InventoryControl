@@ -5,16 +5,22 @@ import org.estoque.Model.Connection.connection;
 import org.estoque.Model.Entity.UsuarioDados;
 import org.estoque.Model.Enum.Status;
 import org.estoque.Present.CadastrarUsuario.CadastrarUsuarioService;
+import org.estoque.View.Central.CentralView;
 import org.estoque.View.FormularioCadastro.CadastraFormularioView;
+import org.estoque.View.Login.LoginView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CadastroUI implements ActionListener {
     private final CadastraFormularioView cadastraFormularioView;
-    public CadastroUI(CadastraFormularioView cadastraFormularioView) {
+    private final LoginView loginView;
+    public CadastroUI(CadastraFormularioView cadastraFormularioView, LoginView loginView) {
         this.cadastraFormularioView = cadastraFormularioView;
+        this.loginView = loginView;
     }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
@@ -54,5 +60,11 @@ public class CadastroUI implements ActionListener {
         CadastrarUsuarioService cadastrarUsuarioService = new CadastrarUsuarioService(conexao);
         String resultado = cadastrarUsuarioService.addUsuario(usuarioDados);
         System.out.println(resultado);
+        redirectLogin();
+    }
+
+    public void redirectLogin() {
+        cadastraFormularioView.dispose();
+        loginView.setVisible(true);
     }
 }
